@@ -1,50 +1,110 @@
-# Welcome to your Expo app 👋
+# 📝 Tidy
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<p align="center">
+  <img src="https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" />
+  <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native" />
+  <img src="https://img.shields.io/badge/Convex-FF4B4B?style=for-the-badge&logo=convex&logoColor=white" alt="Convex" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+</p>
 
-## Get started
+**Tidy** adalah aplikasi manajemen tugas (_Todo List_) berbasis mobile yang dibangun menggunakan **Expo (React Native)** untuk performa mobile yang responsif, serta didukung oleh **Convex** sebagai _backend_ untuk sinkronisasi data secara _real-time_.
 
-1. Install dependencies
+Aplikasi ini dibuat sebagai bagian dari pengembangan portofolio proyek _Full-Stack Mobile Development_.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 📂 Struktur Folder
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+├── 📁 app
+│   ├── 📁 (tabs)
+│   │   ├── 📄 _layout.tsx
+│   │   ├── 📄 index.tsx
+│   │   └── 📄 settings.tsx
+│   └── 📄 _layout.tsx
+├── 📁 assets
+│   ├── 📁 images
+│   │   ├── 🖼️ android-icon-background.png
+│   │   ├── 🖼️ android-icon-foreground.png
+│   │   ├── 🖼️ icon.png
+│   │   └── 🖼️ splash-icon.png
+│   └── 📁 styles
+│       ├── 📄 home.styles.ts
+│       └── 📄 settings.styles.ts
+├── 📁 components
+│   ├── 📄 DangerZone.tsx
+│   ├── 📄 EmptyState.tsx
+│   ├── 📄 Header.tsx
+│   ├── 📄 LoadingSpinner.tsx
+│   ├── 📄 Preferences.tsx
+│   ├── 📄 ProgressStats.tsx
+│   └── 📄 TodoInput.tsx
+├── 📁 convex
+│   ├── 📄 schema.ts
+│   └── 📄 todos.ts
+├── 📁 hooks
+│   └── 📄 useTheme.tsx
+├── ⚙️ app.json
+├── ⚙️ package.json
+└── ⚙️ tsconfig.json
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## ✨ Fitur Utama
 
-## Learn more
+- **⚡ Real-time Data Sync:** Semua tugas disinkronkan secara langsung dan instan ke cloud menggunakan Convex backend.
+- **🌓 Dynamic Dark & Light Mode:** Dilengkapi dengan `ThemeContext` kustom untuk perpindahan tema yang halus dan nyaman di mata.
+- **💾 Persistent Theme Storage:** Pilihan tema pengguna otomatis tersimpan di memori lokal perangkat menggunakan `AsyncStorage`.
+- **📱 Native Fluid UI:** Tampilan antarmuka yang bersih, responsif, dan adaptif untuk berbagai ukuran layar Android.
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 🛠️ Tech Stack
 
-## Join the community
+**Frontend (Mobile App):**
 
-Join our community of developers creating universal apps.
+- **Framework:** Expo (React Native) dengan TypeScript
+- **Routing:** Expo Router (`_layout` berbasis file)
+- **State & Theme Management:** React Context API & UseTheme Hooks
+- **Local Storage:** `@react-native-async-storage/async-storage`
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**Backend & Database:**
+
+- **Backend platform:** Convex (Deployment Region: US East)
+- **Database:** Convex Real-time Document Store
+
+---
+
+## 🚀 Cara Menjalankan Proyek di Lokal
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek **Tidy** di komputer kamu:
+
+### 1. Kloning Repositori
+
+```bash
+git clone https://github.com/Aufa18/Tidy.git
+cd Tidy
+```
+
+### 2. Instalasi Dependensi
+
+Pastikan kamu sudah menginstal [Node.js](https://nodejs.org/) di komputermu. Kemudian, unduh semua _library_ pendukung yang dibutuhkan proyek ini dengan perintah:
+
+```bash
+npm install
+```
+
+### 3. Konfigurasi Backend & Database (Convex)
+
+Karena Tidy menggunakan Convex untuk sinkronisasi data real-time, kamu harus menghubungkannya ke environment Convex milikmu sendiri. jalankan perintah:
+
+```bash
+npx convex dev
+```
+
+### 4. Jalankan Aplikasi
+
+Setelah semua persiapan di atas selesai, nyalakan server lokal Expo dengan perintah:
+
+```bash
+npx expo start
+```
